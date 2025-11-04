@@ -11,4 +11,20 @@
 # SPDX-License-Identifier: Apache-2.0
 # *******************************************************************************
 
-8.3.0
+COMMON_FEATURES = [
+    "treat_warnings_as_errors",
+    "strict_warnings",
+    "additional_warnings",
+]
+
+cc_library(
+    name = "initial_qualifier_state",
+    testonly = False,
+    srcs = ["initial_qualifier_state.cpp"],
+    hdrs = ["initial_qualifier_state.h"],
+    features = COMMON_FEATURES,
+    tags = ["FUSA"],
+    visibility = [
+        "@score-config_management//score/config_management/config_daemon/code:__subpackages__",
+    ],
+)
